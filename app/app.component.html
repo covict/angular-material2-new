@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  Angular Material 2 App
+  <div style="flex-grow: 1"></div>
+  <mat-menu [class]="markRed ? 'switch-nested-menu-arrows' : undefined" #rootMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="subMenu">Power</button>
+    <button mat-menu-item>System settings</button>
+  </mat-menu>
+
+  <mat-menu #subMenu="matMenu">
+    <button mat-menu-item>Shut down</button>
+    <button mat-menu-item>Restart</button>
+    <button mat-menu-item>Hibernate</button>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="rootMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="basic-container">
+  <p>For the menu button at TopLeft -> Activate the slider to apply right arrows</p>  
+  <mat-slide-toggle [(ngModel)]="markRed"></mat-slide-toggle>
+  <span class="version-info">Current build: {{version.full}}</span>
+</div>
+
+<!--
+Copyright Google LLC All Rights Reserved.
+
+Use of this source code is governed by an MIT-style license that can be
+found in the LICENSE file at https://angular.io/license
+-->
